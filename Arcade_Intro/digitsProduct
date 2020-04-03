@@ -1,0 +1,19 @@
+def digitsProduct(product):
+    if(product==0):return 10
+    elif(product==1):return 1
+    else:
+        p=[]
+        i=9
+        ok= True
+        while ok:
+            ok = False
+            for i in range(9,1,-1):
+                if product % i == 0:
+                    ok = True
+                    p.append(i)
+                    product = product // i
+                    if product == 1:
+                        p.sort()
+                        return int(''.join(map(str,p)))
+                    break
+        return -1  
